@@ -32,3 +32,21 @@ var str="Hardik";
 str.match(/hard/gi);
 //matches as case insensitive(gi stands for global insensitive)
 ```
+## Example 5
+```
+var str="Hardik";
+str.match(/[a-p]/gi);
+//prints all matched in the range
+```
+## Example 6
+```
+var str="Hardik";
+str.match(/[a-p]/gi);
+//prints all matched in the range
+```
+## Example 7
+```
+var str="Hardik";
+str.match(/[a-p]/);
+//prints first matched in the range
+```
