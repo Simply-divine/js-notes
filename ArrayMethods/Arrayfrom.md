@@ -1,4 +1,4 @@
-# Array Methods  =>
+# Array Methods :
 -----------------------
 &nbsp;
 
