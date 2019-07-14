@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .success {
+            outline: none;
+            border: 2px solid green;
+        }
+        
+        .error {
+            outline: none;
+            border: 2px solid red;
+        }
+        
+        .warning {
+            outline: none;
+            border: 2px solid orange;
+        }
+        
+        .input {
+            outline: none;
+            border: 2px solid grey;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="#" name="form1" id="form1">
+        <div>
+            <label for="uname">username</label>
+            <input type="text" name="uname" error="username is invalid" success="username is valid">
+            <span></span>
+        </div>
+        <div>
+            <label for="password">password</label>
+            <input type="password" name="password" error="password is invalid" success="password is valid">
+            <span></span>
+        </div>
+        <div>
+            <input type="button" id="login" value="Submit">
+        </div>
+    </form>
+</body>
+<script>
+    const validator = {
+        validate: function(element) {
+            const tag = document.querySelectorAll('input + span ');
+            if (element.type == "text" || element.type == "password" || element.type == "email") {
+                if (element.value == null || element.value == undefined || element.value == "") {
+                    element.classList.remove('success');
+                    element.classList.add('error');
+                    element.classList.remove('warning');
+                    console.log(tag);
+                    (element.type == "text") ? tag[0].innerHTML = element.getAttribute('error'): tag[1].innerHTML = element.getAttribute('error');
+                } else {
+                    element.classList.add('success');
+                    element.classList.remove('warning');
+                    element.classList.remove('error');
+                    (element.type == "text") ? tag[0].innerHTML = element.getAttribute('success'): tag[1].innerHTML = element.getAttribute('success');
+                }
+            }
+
+        }
+    }
+    var form1 = document.getElementById('form1');
+    for (let i = 0; i < form1.length - 1; i++) {
+        form1[i].addEventListener('focus', function() {
+            form1[i].classList.add('warning');
+        });
+        form1[i].addEventListener('keyup', function() {
+            validator.validate(form1[i]);
+        })
+        form1[i].addEventListener('blur', function() {
+            validator.validate(form1[i])
+        });
+    }
+    console.log(form1);
+    document.getElementById('login').addEventListener('click', function() {
+        for (let i = 0; i < form1.length - 1; i++) {
+            validator.validate(form1[i]);
+        }
+    })
+</script>
+
+</html>
