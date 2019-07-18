@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //let user = new Object(); // "object constructor" syntax
+    let user = {
+        name: "John", // by key "name" store value "John"
+        age: 30, // by key "age" store value 30
+        //"likes birds": true // multiword property name must be quoted
+    }; // "object literal" syntax
+    // get fields of the object:
+    let key = prompt("What do you want to know about the user?", "name");
+    user.isAdmin = true;
+    delete user.age;
+    alert(user[key]); // John (if enter "name")
+    // alert(user["likes birds"]);
+    // alert(user.name); // John
+    // alert(user.age); // 30
+    let fruit = prompt("Which fruit to buy?", "apple");
+    let bag = {
+        [fruit]: 5, // the name of the property is taken from the variable fruit
+    };
+    alert(bag.apple); // 5 if fruit="apple"
+    //     let fruit = prompt("Which fruit to buy?", "apple");
+    //     let bag = {};
+
+    //     // take property name from the fruit variable
+    //     bag[fruit] = 5
+    //let fruit = 'apple';
+    // let bag = {
+    //         [fruit + 'Computers']: 5 // bag.appleComputers = 5
+    //     }
+    // Square brackets are much more powerful than the dot notation.
+    // They allow any property names and variables.
+    //  But they are also more cumbersome to write.
+    //Reserved words are allowed as property names
+
+
+    // Basically, any name is allowed, 
+    //but there’s a special one: "__proto__" that gets 
+    //special treatment for historical reasons.
+    // For instance, we can’t set it to a non-object value:
+    let obj = {};
+    obj.__proto__ = 5;
+    alert(obj.__proto__); // [object Object], didn't work as intended
+
+
+
+
+
+
+    //using constructor
+    // function makeUser(name, age) {
+    //     return {
+    //         name: name,
+    //         age: age
+    //             // ...other properties
+    //     };
+    // }
+
+    // let newuser = makeUser("John", 30);
+    // alert(newuser.name); // John
+    // //alternative
+    // function makeUser(name, age) {
+    //     return {
+    //         name,
+    //         age
+    //             // ...other properties
+    //     };
+    // }
+
+    // let newuser = makeUser("John", 30);
+    // alert(newuser.name); // John
+    let newuser = {
+        name, // same as name:name
+        age: 30
+    };
+    alert(newuser.name);
+    //     let user = {};
+
+    // alert( user.noSuchProperty === undefined ); // true means "no such property"
+    //     let user = { name: "John", age: 30 };
+
+    // alert( "age" in user ); // true, user.age exists
+    // alert( "blabla" in user ); // false, user.blabla doesn't exist
+
+
+    // Are objects ordered? 
+    //In other words, if we loop over an object, 
+    //do we get all properties in the same order they were added?
+
+    // The short answer is: “ordered in a special fashion”: 
+    //integer properties are sorted, 
+    //others appear in creation order. The details follow.
+    // let codes = {
+    //   "49": "Germany",
+    //   "41": "Switzerland",
+    //   "44": "Great Britain",
+    //   // ..,
+    //   "1": "USA"
+    // };
+
+    // for (let code in codes) {
+    //   alert(code); // 1, 41, 44, 49
+    // }
+</script>
+
+</html>

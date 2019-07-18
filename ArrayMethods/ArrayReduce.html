@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Array.prototype.reduce</title>
+</head>
+
+<body>
+    Take a look at console 💁
+</body>
+<script>
+    //reduce used to calculate the sum of elements of Array or object array
+    // var userArray = [1, 2, 3, 4];
+    // var totalSum = userArray.reduce(function(sum, current) {
+    //     return sum + current;
+    // });
+    // console.log(totalSum);
+    var userArray = [1, 2, 3, 4];
+    var totalSum = userArray.reduce((sum, current) => sum + current);
+    console.log(totalSum);
+    //reduce can be used in same way for object arrays too
+    var ObjUser = [{
+        x: 3
+    }, {
+        x: 4
+    }];
+    var SumObj = ObjUser.reduce((sum, current) => sum + current);
+    console.log(SumObj);
+    var cars = ['Audi', 'Mercedes', 'Audi', 'ciaz'];
+    var carstot = cars.reduce(function(obj, curr) {
+        if (!obj[curr]) {
+            obj[curr] = 0;
+        }
+        obj[curr]++;
+        return obj;
+    }, {});
+    console.log(carstot);
+</script>
+
+</html>
